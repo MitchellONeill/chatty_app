@@ -1,10 +1,17 @@
-import React, {Component} from 'react';
+import React from 'react';
+import ChatBar from './ChatBar.jsx';
+import MessageList from './MessageList.jsx';
 
-class App extends Component {
+
+const App = React.createClass({
   render() {
     return (
-      <h1>Hello React :)</h1>
+    <div>
+      <MessageList />
+      <ChatBar />
+    </div>
     );
   }
-}
+});
+
 export default App;
