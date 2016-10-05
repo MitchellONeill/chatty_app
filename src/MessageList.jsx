@@ -1,17 +1,22 @@
 import React from 'react';
-import Message from './Message.jsx'
-
+import Message from './Message.jsx';
 
 const MessageList = React.createClass({
+
   render() {
+     console.log("Rendering <MessageList/>");
+
     return(
       <div id="message-list">
+        {this.props.messages.map((result) => (
         <Message
-         username='Mitch ONeill'
-         content ="I won't be impressed with tech until I can download food" />
+         key= {result.id}
+         username = {result.username}
+         content = {result.content} />
+         ))}
       </div>
       );
-  }
+    }
 });
 
 export default MessageList;

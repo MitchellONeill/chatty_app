@@ -1,7 +1,9 @@
 import React from 'react'
 
 const Message = React.createClass({
+
   render() {
+     console.log("Rendering <Message/>");
     return (
       <div className="message">
         <span className="username">{this.props.username}</span>
@@ -11,14 +13,16 @@ const Message = React.createClass({
   }
 });
 
-const MessageSystem = React.createClass ({
-  render() {
-    return (
-      <div className="message system">
-        <span>{this.props.messagesystem}</span>
-      </div>
-    );
-  }
-});
+// const MessageSystem = React.createClass ({
+//   render() {
+//          console.log("Rendering <MessageSystem/>");
 
-export {Message as default, MessageSystem};
+//     return (
+//       <div className="message system">
+//         <span>{this.props.messagesystem}</span>
+//       </div>
+//     );
+//   }
+// });
+
+export {Message as default} //MessageSystem};
