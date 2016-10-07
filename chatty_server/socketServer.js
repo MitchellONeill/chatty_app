@@ -22,25 +22,20 @@ wss.broadcast = (data) => {
 };
 
 wss.on('connection', (ws) => {
-  console.log('Client connected');
-  let users = wss.clients.length;
-  wss.broadcast(JSON.stringify(users));
-  ws.on('close', () => {
+    console.log('Client connected');
+    let users = wss.clients.length;
     wss.broadcast(JSON.stringify(users));
-    console.log('Client disconnected');
+  ws.on('close', () => {
+      wss.broadcast(JSON.stringify(users));
+      console.log('Client disconnected');
   });
   ws.on('message', (newMessage) => {
-    newMessage = JSON.parse(newMessage);
-    let uid = uuid.v4()
-    console.log(newMessage.type == "incomingMessage");
-    if(newMessage.type == "incomingMessage")
-    {
-      var randomColor = colors[getRandomInt(0, colors.length -1)];
-      newMessage.color = randomColor
-    }
-    newMessage.id = uid;
-    wss.broadcast(JSON.stringify(newMessage))
-  })
+    console.log('we received the message');
+      newMessage = JSON.parse(newMessage);
+      let uid = uuid.v4();
+      newMessage.id = uid;
+      wss.broadcast(JSON.stringify(newMessage));
+  });
 });
 
 function getRandomInt(min, max) {

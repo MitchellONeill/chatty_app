@@ -25,7 +25,7 @@ const ChatBar = React.createClass({
       else {user = this.state.user}
       let newMsg = this.props;
     console.log(newMsg);
-      this.props.addChat({username: user, users: this.props.messages.users, content: this.state.content, currentUser:this.props.currentUser, color:this.props.color});
+      this.props.addChat({username: user, content: this.state.content});
       this.state.content = '';
     };
   },

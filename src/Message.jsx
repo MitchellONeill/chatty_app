@@ -12,24 +12,12 @@ const Message = React.createClass({
           <span className="content">{this.props.content}</span>
         </div>
       );
-    } else if (this.props.type === "incomingMessage" && this.props.content) {
+    } else if (this.props.type === "incomingMessage") {
       return(
-        <div>
-          <div className="message system">
-            <span className="content">{this.props.currentUser} changed their name to {this.props.username}</span>
-          </div>
-          <div className="message">
-           <span className="username" style={spanStyle}>{this.props.username}</span>
-            <span className="content" style={spanStyle}>{this.props.content}</span>
-          </div>
+        <div className="message system">
+          <span className="content">{this.props.content}</span>
         </div>
-      )
-    } else if(this.props.type === "incomingMessage" && !this.props.content) {
-    return (
-      <div className="message system">
-        <span className="content">{this.props.currentUser} changed their name to {this.props.username}</span>
-      </div>
-     )
+      );
     }
   }
 });
