@@ -1,6 +1,9 @@
 node_modules
 npm-debug.log
 dist
+.babelrd
+.eslintrc
+.jshintrc
 
 ### PhpStorm ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and Webstorm

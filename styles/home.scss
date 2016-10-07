@@ -21,6 +21,10 @@ nav h1 {
   margin: 0;
 }
 
+.users {
+  float: right;
+}
+
 #message-list {
   height: calc(100vh - 131px);
   padding: 16px 8px;
@@ -29,6 +33,7 @@ nav h1 {
 #message-list .message {
   padding: 4px 0;
   display: flex;
+
 }
 
 #message-list .message .username,#message-list .message .content {

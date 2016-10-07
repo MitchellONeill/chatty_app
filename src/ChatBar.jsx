@@ -7,21 +7,28 @@ const ChatBar = React.createClass({
   },
 
   handleChangeContent(event) {
-    this.setState({message: event.target.value});
+    this.setState({content: event.target.value});
   },
 
   getInitialState () {
-    return {user: this.props.currentUser}
+    return {
+      user: this.props.currentUser,
+    }
   },
 
   onEnter (e) {
     console.log("onInputKeyPress <ChatBar />");
-    if(e.key ===  'Enter') {
-      this.props.addChat({username: this.state.user, content: this.state.message});
-      this.setState({valueFromInput: ''});
+    let user;
+    console.log(e.key);
+    if(e.key ===  'Enter' && this.state.content) {
+      if(this.state.user === ''){user = 'Anonymous'}
+      else {user = this.state.user}
+      let newMsg = this.props;
+    console.log(newMsg);
+      this.props.addChat({username: user, users: this.props.messages.users, content: this.state.content, currentUser:this.props.currentUser, color:this.props.color});
+      this.state.content = '';
     };
   },
-
 
   render() {
     console.log("Rendering <ChatBar/>");
@@ -29,9 +36,11 @@ const ChatBar = React.createClass({
       <footer>
         <input id="username" type="text" placeholder="Your Name (Optional)"
         value={this.state.user}
+        onKeyPress={this.onEnter}
         onChange={this.handleChangeUsr}
         />
         <input id="new-message" type="text" placeholder="Type a message and hit ENTER"
+        value={this.state.content}
         onKeyPress={this.onEnter}
         onChange={this.handleChangeContent}
         />
