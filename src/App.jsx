@@ -26,28 +26,22 @@ componentDidMount () {
    };
   this.state.socketConnection.onmessage = (event) => {
     let data = this.state;
-    console.log(data);
-    console.log('LENGTH', data.messages.length);
-    console.log('**888888***',  event);
     if(!isNaN(event.data))
     {
       let users = event.data
       data.users = users
-      console.log('our data on user event',data);
       this.setState(data)
     }
     else
     {
       let message = JSON.parse(event.data)
       data.messages.push(message);
-      console.log('*$*8888$****', data);
       this.setState(data)
     }
     };
   },
 
 render() {
-  let last = this.state.messages.length - 1;
   console.log('our state on render', this.state.messages);
   return (
   <div>
@@ -77,11 +71,9 @@ render() {
       incoming.content = this.state.currentUser.name + " changed his name to " + newMessage.username;
       incoming.type = "incomingMessage"
       this.state.currentUser.name = newMessage.username;
-      console.log('addChat IM 99999', incoming);
       this.state.socketConnection.send(JSON.stringify(incoming));
     }
     newMessage.type = "postMessage";
-      console.log('addChat PM (****)', newMessage);
       this.state.socketConnection.send(JSON.stringify(newMessage));
   }
 });

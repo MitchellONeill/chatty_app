@@ -24,7 +24,6 @@ const ChatBar = React.createClass({
       if(this.state.user === ''){user = 'Anonymous'}
       else {user = this.state.user}
       let newMsg = this.props;
-    console.log(newMsg);
       this.props.addChat({username: user, content: this.state.content});
       this.state.content = '';
     };

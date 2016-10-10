@@ -7,10 +7,6 @@ const MessageList = React.createClass({
 
   render() {
     console.log("Rendering <MessageList/>");
-    console.log(this.props);
-    let currentUser = this.props.currentUser;
-    console.log(currentUser);
-    console.log(this.props.messages[0]);
       return(
         <div id="message-list">
           {this.props.messages.map((result) => (
