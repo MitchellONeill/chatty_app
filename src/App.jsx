@@ -2,6 +2,7 @@ import React from 'react';
 import ChatBar from './ChatBar.jsx';
 import MessageList from './MessageList.jsx';
 import UserCount from './UserCount.jsx'
+
  var data =
  {
     socketConnection: {},
@@ -42,7 +43,6 @@ componentDidMount () {
   },
 
 render() {
-  console.log('our state on render', this.state.messages);
   return (
   <div>
     <nav id="chatnav">
@@ -64,7 +64,6 @@ render() {
 },
 
   addChat: function (newMessage) {
-    console.log("add CHAT!");
     if(newMessage.username !== this.state.currentUser.name)
     {
       let incoming = {}
